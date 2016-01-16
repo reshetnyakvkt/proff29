@@ -8,4 +8,9 @@ package quizful.testInterface.base;
 interface Base {
     boolean m1();
     byte m2(short s);
+    public class Inner{
+        Inner(){
+            System.out.println("Inner Created!");
+        }
+    }
 }

@@ -11,5 +11,12 @@ public class TestString {
         sb.append("-aaa");
         System.out.println(s);
         System.out.println(sb);
+        /***/
+        Integer i = new Integer(10);
+        if (i.toString() == i.toString()){
+            System.out.println("true");
+        } else {
+            System.out.println("false");
+        }
     }
 }
