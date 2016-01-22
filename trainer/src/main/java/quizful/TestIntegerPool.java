@@ -15,10 +15,6 @@ public class TestIntegerPool {
         /***/
         int[] a1[] = new int[3][3];
 
-//        int a2[4] = {3, 4, 5, 6};
-        int i=0, j=1;
-
-        int a-class=0;
 
     }
 }

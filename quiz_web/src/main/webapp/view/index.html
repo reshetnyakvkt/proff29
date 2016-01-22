@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app = "jQuiz">
+
+<head>
+    <title>Cristina's Java Quizzes</title>
+    <script type = "text/javascript" src="../js/angular/angular.min.js"> </script>
+    <script type = "text/javascript" src="../js/controllers/QuestionController.js"> </script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="../css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+
+<div class="navbar navbar-custom">
+    <a class="navbar-brand" href="#">Cristina's Java Quizzes</a>
+</div>
+
+<div class="panel" ng-controller="QuestionController">
+
+    <div class="panel-header">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2  ng-click = "score = 0">Your score (click to reset): <span class="label label-info">{{score}}</span></h2>
+            </div>
+            <div class="col-sm-6">
+                <h2 ng-click = "incrementScore()">Your time: <span class="label label-info">Coming soon!</span></h2>
+                <br/><br/>
+            </div>
+        </div>
+    </div>
+
+    <div class="row grid-row">
+
+        <div class="col-sm-8" style="height:500px;overflow-y:scroll;">
+            <ul>
+                <li ng-repeat="question in questions | filter:subject" class="list-unstyled">
+                    <blockquote>{{question.text}}
+                        <form role="form">
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" ng-model="answer" value=1 ng-change="calculateScore(answer, {{question.r}})">{{question.a1}}</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" ng-model="answer" value=2 ng-change="calculateScore(answer, {{question.r}})">{{question.a2}}</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" ng-model="answer" value=3 ng-change="calculateScore(answer, {{question.r}})">{{question.a3}}</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" ng-model="answer" value=4 ng-change="calculateScore(answer, {{question.r}})">{{question.a4}}</label>
+                            </div>
+                        </form>
+                    </blockquote>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" ng-model="subject" placeholder="Filter">{{subject}}
+                    <ul>
+                        <li ng-repeat="question in questions | filter:subject | orderBy:'text' | limitTo:10 ">{{question.text | limitTo:150 }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</body>
+
+</html>

@@ -12,7 +12,7 @@
 </head>
 <body>
 <h2>Welcome</h2><br>
-<form action="j_security_check" method=post>
+<form action="j_auth" method=post>
     <p><strong>Please enter your Name: </strong>
         <input type="text" name="j_username" size="25">
         <input type="submit" value="Submit">

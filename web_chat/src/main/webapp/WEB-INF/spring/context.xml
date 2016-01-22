@@ -10,6 +10,7 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+    <context:property-placeholder location="classpath:conf.properties"/>
 
     <import resource="dataContext.xml"/>
     <import resource="mvc-dispatcher-servlet.xml"/>
@@ -19,4 +20,33 @@
 
     <mvc:resources mapping="/**" location="/"/>
     <mvc:annotation-driven/>
+
+    <bean id="nameApp" class="java.lang.String">
+        <constructor-arg value="${nameApp}"/>
+    </bean>
+
+    <bean id="localeApp" class="java.lang.String">
+        <constructor-arg value="${localeApp}"/>
+    </bean>
+
+<!--    <context:property-placeholder location="classpath:/messages/${localeApp}"/>
+
+    <bean id="msg_err_login" class="java.lang.String">
+        <constructor-arg value="${msg_err_login}"/>
+    </bean>-->
+
+    <!--Localization -->
+    <bean id="localeChangeInterceptor"
+          class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+        <property name="paramName" value="language" />
+    </bean>
+
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" >
+        <property name="interceptors">
+            <list>
+                <ref bean="localeChangeInterceptor" />
+            </list>
+        </property>
+    </bean>
+    <!---->
 </beans>

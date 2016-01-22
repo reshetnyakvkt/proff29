@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/oleg_golvazin/oleg_golvazin.iml" filepath="$PROJECT_DIR$/oleg_golvazin/oleg_golvazin.iml" />
       <module fileurl="file://$PROJECT_DIR$/proff29.iml" filepath="$PROJECT_DIR$/proff29.iml" />
+      <module fileurl="file://$PROJECT_DIR$/quiz_web/quiz_web.iml" filepath="$PROJECT_DIR$/quiz_web/quiz_web.iml" />
       <module fileurl="file://$PROJECT_DIR$/trainer/trainer.iml" filepath="$PROJECT_DIR$/trainer/trainer.iml" />
       <module fileurl="file://$PROJECT_DIR$/web_chat/web_chat.iml" filepath="$PROJECT_DIR$/web_chat/web_chat.iml" />
     </modules>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="oleg_golvazin:war">
+    <output-path>$PROJECT_DIR$/oleg_golvazin/target</output-path>
+    <root id="archive" name="oleg_golvazin-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="oleg_golvazin:war exploded" />
+    </root>
+  </artifact>
+</component>

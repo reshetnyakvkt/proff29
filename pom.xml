@@ -12,6 +12,8 @@
     <modules>
         <module>trainer</module>
         <module>web_chat</module>
+        <module>quiz_web</module>
+        <module>oleg_golvazin</module>
     </modules>
 
     <properties>
@@ -23,7 +25,7 @@
         <spring.version>4.1.4.RELEASE</spring.version>
         <spring-security.version>3.2.5.RELEASE</spring-security.version>
         <hibernate.version>4.3.8.Final</hibernate.version>
-        <mysql.connector.version>5.1.21</mysql.connector.version>
+        <mysql.connector.version>5.1.38</mysql.connector.version>
         <platform.version>2.3.3</platform.version>
         <ehcache.version>2.8.4</ehcache.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
