@@ -22,6 +22,9 @@ public class FormAnswerQuestion {
     private Date createDate;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    private FormUser formUser;
+
+    @ManyToOne(fetch = FetchType.EAGER)
     private Question question;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -29,5 +32,45 @@ public class FormAnswerQuestion {
 
     public FormAnswerQuestion() {
         this.createDate = Calendar.getInstance().getTime();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public FormUser getFormUser() {
+        return formUser;
+    }
+
+    public void setFormUser(FormUser formUser) {
+        this.formUser = formUser;
+    }
+
+    public Question getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(Question question) {
+        this.question = question;
+    }
+
+    public Answer getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(Answer answer) {
+        this.answer = answer;
     }
 }

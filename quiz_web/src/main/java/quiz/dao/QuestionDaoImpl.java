@@ -17,7 +17,7 @@ import java.util.List;
 @Repository("questionDao")
 @Transactional
 public class QuestionDaoImpl implements QuestionDao {
-    private static Logger log = Logger.getLogger(FormDaoImpl.class);
+    private static Logger log = Logger.getLogger(QuestionDaoImpl.class);
 
     @Autowired(required = true)
     private SessionFactory factory;

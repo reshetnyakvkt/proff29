@@ -19,7 +19,7 @@ import java.util.List;
 @Repository("formAccessDao")
 @Transactional
 public class FormAccessDaoImpl implements FormAccessDao {
-    private static Logger log = Logger.getLogger(FormDaoImpl.class);
+    private static Logger log = Logger.getLogger(FormAccessDaoImpl.class);
 
     @Autowired(required = true)
     private SessionFactory factory;

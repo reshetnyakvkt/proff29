@@ -13,7 +13,7 @@
         <module>trainer</module>
         <module>web_chat</module>
         <module>quiz_web</module>
-        <module>oleg_golvazin</module>
+        <!--<module>oleg_golvazin</module>-->
     </modules>
 
     <properties>

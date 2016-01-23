@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import quiz.dao.*;
 import quiz.domain.*;
-import quiz.exception.AuthenticationException;
 
 import java.util.List;
 import java.util.Locale;
@@ -35,11 +34,19 @@ public class TestServiceImpl implements TestService {
     @Autowired(required = true)
     private AnswerDao answerDao;
 
+    @Autowired(required = true)
+    private FormUserDao formUserDao;
+
+    @Autowired(required = true)
+    private FormAnswerQuestionDao formAnswerQuestionDao;
+
     private List<User> userList;
     private List<Form> formList;
     private List<FormAccess> formAccessList;
     private List<Question> questionList;
     private List<Answer> answerList;
+    private List<FormUser> formUserList;
+    private List<FormAnswerQuestion> formAnswerQuestionList;
 
 
     public TestServiceImpl() {
@@ -168,5 +175,25 @@ public class TestServiceImpl implements TestService {
             answerDao.create(answer = new Answer(question));
             answerList.add(answer);
         }
+    }
+
+    private void fillFormUserList() {
+        if (formUserList != null){
+            for (int i = 0; i < formUserList.size();  i++){
+                formUserDao.delete(formUserList.get(i));
+            }
+            formUserList.clear();
+        }
+
+        FormUser formUser;
+
+        for (User user : userList) {
+            formUserDao.create(formUser = new FormUser(user, formList.get(0)));
+            formUserList.add(formUser);
+        }
+    }
+
+    private void fillFormAnswerQuestion() {
+
     }
 }

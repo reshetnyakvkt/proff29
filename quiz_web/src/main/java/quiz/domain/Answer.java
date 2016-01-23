@@ -7,7 +7,6 @@ import java.util.*;
 
 /**
  * Created by Reshetnyak Viktor on 19.01.2016.
- * Project proff29
  * Package quiz.domain
  */
 @Entity
@@ -16,15 +15,18 @@ public class Answer {
     @Id
     @SequenceGenerator(name = "sequence_q_answer", sequenceName = "SEQ_Q_ANSWER",
             allocationSize = 1, initialValue = 1)
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "sequence_q_answer")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "sequence_q_answer")
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "CREATE_DATE", length = 15)
-    private Date createDate;
-
     @Column(name = "NAME", length = 512)
     private String name;
+
+    @Column(name = "RIGTH")
+    private boolean right;
+
+    @Column(name = "CREATE_DATE", length = 15)
+    private Date createDate;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Question question;
@@ -68,5 +70,13 @@ public class Answer {
 
     public void setQuestion(Question question) {
         this.question = question;
+    }
+
+    public boolean isRight() {
+        return right;
+    }
+
+    public void setRight(boolean right) {
+        this.right = right;
     }
 }

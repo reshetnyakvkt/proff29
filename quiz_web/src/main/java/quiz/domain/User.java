@@ -7,8 +7,7 @@ import java.util.Set;
 
 /**
  * Created by Reshetnyak Viktor on 19.01.2016.
- * Project quiz
- * Package web.domain
+ * Package quiz.domain
  */
 @Entity
 @Table(name = "Q_USER")
@@ -26,8 +25,8 @@ public class User {
     @Column (name = "ADMIN_USER", length = 1)
     private Integer permission;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<FormAccess> formList = new HashSet<>();
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
+    private Set<FormAccess> formList;
 
     public User() {
     }
@@ -59,6 +58,14 @@ public class User {
 
     public void setPermission(Integer permission) {
         this.permission = permission;
+    }
+
+    public Set<FormAccess> getFormList() {
+        return formList;
+    }
+
+    public void setFormList(Set<FormAccess> formList) {
+        this.formList = formList;
     }
 
     @Override
