@@ -188,12 +188,29 @@ public class TestServiceImpl implements TestService {
         FormUser formUser;
 
         for (User user : userList) {
-            formUserDao.create(formUser = new FormUser(user, formList.get(0)));
-            formUserList.add(formUser);
+            for (Form form : formList) {
+                formUserDao.create(formUser = new FormUser(user, form));
+                formUserList.add(formUser);
+            }
         }
     }
 
     private void fillFormAnswerQuestion() {
+        if (formAnswerQuestionList != null){
+            for (int i = 0; i < formAnswerQuestionList.size();  i++){
+                formAnswerQuestionDao.delete(formAnswerQuestionList.get(i));
+            }
+            formAnswerQuestionList.clear();
+        }
+        FormAnswerQuestion formAnswerQuestion;
 
+        for (FormUser formUser : formUserList) {
+            for (Question question : questionList) {
+                for (Answer answer : answerList) {
+                    formAnswerQuestionDao.create(formAnswerQuestion = new FormAnswerQuestion());
+                    formAnswerQuestionList.add(formAnswerQuestion);
+                }
+            }
+        }
     }
 }
