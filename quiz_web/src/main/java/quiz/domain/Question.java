@@ -21,6 +21,10 @@ public class Question {
     @Column (name = "NAME", length = 512)
     private String name;
 
+    @Enumerated(EnumType.ORDINAL)
+    @Column (name = "QUESTION_TYPE")
+    private EQuiestionType quiestionType;
+
     @ManyToOne(fetch = FetchType.EAGER)
     private Form form;
 
@@ -30,8 +34,10 @@ public class Question {
     public Question() {
     }
 
-    public Question(Form form) {
+    public Question(Form form, EQuiestionType quiestionType, String name) {
         this.form = form;
+        this.quiestionType = quiestionType;
+        this.name = name;
     }
 
     public Long getId() {
@@ -64,5 +70,13 @@ public class Question {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public EQuiestionType getQuiestionType() {
+        return quiestionType;
+    }
+
+    public void setQuiestionType(EQuiestionType quiestionType) {
+        this.quiestionType = quiestionType;
     }
 }

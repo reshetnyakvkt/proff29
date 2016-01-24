@@ -23,7 +23,7 @@ public class Answer {
     private String name;
 
     @Column(name = "RIGTH")
-    private boolean right;
+    private Boolean right;
 
     @Column(name = "CREATE_DATE", length = 15)
     private Date createDate;
@@ -35,9 +35,11 @@ public class Answer {
         this.createDate = Calendar.getInstance().getTime();
     }
 
-    public Answer(Question question) {
+    public Answer(Question question, String name, boolean right) {
         this();
         this.question = question;
+        this.name = name;
+        this.right = right;
     }
 
     public Long getId() {
@@ -72,11 +74,11 @@ public class Answer {
         this.question = question;
     }
 
-    public boolean isRight() {
+    public Boolean isRight() {
         return right;
     }
 
-    public void setRight(boolean right) {
+    public void setRight(Boolean right) {
         this.right = right;
     }
 }

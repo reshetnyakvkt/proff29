@@ -154,8 +154,15 @@ public class TestServiceImpl implements TestService {
         Question question;
 
         for (Form form : formList) {
-            questionDao.create(question = new Question(form));
-            questionList.add(question);
+            int countQuestion = 5 + (int) (Math.round(Math.random() + 1F) * 5);
+            for (int i = 1; i <= countQuestion; i++) {
+                if (Math.random() > 0.5) {
+                    questionDao.create(question = new Question(form, EQuiestionType.MultiAnswer, "Question" + i));
+                } else {
+                    questionDao.create(question = new Question(form, EQuiestionType.SingleAnswer, "Question" + i));
+                }
+                questionList.add(question);
+            }
         }
     }
 
@@ -169,11 +176,16 @@ public class TestServiceImpl implements TestService {
 
         fillQuestion();
 
-
         Answer answer;
+        int countAnswer = 4;
         for (Question question : questionList) {
-            answerDao.create(answer = new Answer(question));
-            answerList.add(answer);
+            for (int i = 1; i <= countAnswer; i++){
+                answerDao.create(answer = new Answer(question, "Answer " + i,
+                        question.getQuiestionType() == EQuiestionType.SingleAnswer ?
+                                (i == 1 ? true : false) :
+                                i == 1 ? true : Math.random() > 0.7));
+                answerList.add(answer);
+            }
         }
     }
 

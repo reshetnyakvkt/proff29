@@ -12,7 +12,6 @@ import java.util.List;
 
 /**
  * Created by Reshetnyak Viktor on 21.01.2016.
- * Project proff29
  * Package quiz.dao
  */
 @Repository("formAccessDao")
